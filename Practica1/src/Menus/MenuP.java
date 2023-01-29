@@ -1,9 +1,13 @@
+package Menus;
+
 import java.util.Scanner;
 
-public class Menu {
+import static Menus.Products.addProduct;
 
+public class MenuP {
+    static Scanner sc = new Scanner(System.in);
     public static void validation(String userU, String passwordU){
-        Scanner sc = new Scanner(System.in);
+
         String user;
         String password;
 
@@ -34,6 +38,33 @@ public class Menu {
     }
 
     public static void showMenu(){
-        System.out.println(" MENU 2");
+        int menuOption = 0;
+        do {
+            System.out.println("Selecciona la opción deseada");
+            System.out.println("[1] Agregar nuevos productos");
+            System.out.println("[2] Agregar cupones de descuento");
+            System.out.println("[3] Realizar venta");
+            System.out.println("[4] Realizar reporte");
+
+            menuOption = sc.nextInt();
+
+            switch (menuOption) {
+                case 1:
+                    addProduct();
+                    break;
+                case 2:
+                    System.out.println("Agregar cupones de descuento");
+                    break;
+                case 3:
+                    System.out.println("Realizar venta");
+                    break;
+                case 4:
+                    System.out.println("Realizar reporte");
+                    break;
+                default:
+                    System.out.println("Please, select a correct answer");
+            }
+        } while (menuOption!=0);
+
     }
 }
