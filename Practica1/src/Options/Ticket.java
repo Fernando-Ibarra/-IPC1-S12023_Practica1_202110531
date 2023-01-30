@@ -22,6 +22,30 @@ public class Ticket {
     }
 
     public void setValue(int value) {
+
         this.value = value;
     }
+
+    static Ticket[] listTickest = new Ticket[20];
+
+    public static Ticket[] getListTickest() {
+        return listTickest;
+    }
+
+    public static void setListTickest(Ticket[] listTickest) {
+        Ticket.listTickest = listTickest;
+    }
+
+    public static void addTicketToArray(Ticket myTicket){
+        for (int i=0; i<= listTickest.length;  i++){
+            if (listTickest[i] != null){
+                break;
+            }
+            if (listTickest[i] == null){
+                listTickest[i] = myTicket;
+                break;
+            }
+        }
+    }
+
 }
