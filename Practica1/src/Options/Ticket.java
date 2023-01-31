@@ -26,7 +26,7 @@ public class Ticket {
         this.value = value;
     }
 
-    static Ticket[] listTickest = new Ticket[20];
+    public static Ticket[] listTickest = new Ticket[20];
 
     public static Ticket[] getListTickest() {
         return listTickest;

@@ -3,6 +3,7 @@ package Menus;
 import java.util.Scanner;
 
 import static Menus.Products.addProduct;
+import static Menus.Sales.Sale;
 import static Menus.Tickets.addTickets;
 
 public class MenuP {
@@ -39,7 +40,7 @@ public class MenuP {
     }
 
     public static void showMenu(){
-        int menuOption = 0;
+        int menuOption;
         do {
             System.out.println("Selecciona la opción deseada");
             System.out.println("[1] Agregar nuevos productos");
@@ -57,13 +58,13 @@ public class MenuP {
                     addTickets();
                     break;
                 case 3:
-                    System.out.println("Realizar venta");
+                    Sale();
                     break;
                 case 4:
                     System.out.println("Realizar reporte");
                     break;
                 default:
-                    System.out.println("Please, select a correct answer");
+                    System.out.println("POR FAVOR, SELECCIONE UNA OPCIÓN CORRECTA");
             }
         } while (menuOption!=0);
 

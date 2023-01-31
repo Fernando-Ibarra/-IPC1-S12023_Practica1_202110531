@@ -14,7 +14,7 @@ public class Tickets {
     public static void addTickets(){
         String nameTicket;
         int valueTicket;
-
+        sc.skip("\n");
         System.out.println("                                ");
         System.out.println(" ----------- AGREGAR CUPÓN ----------- ");
         System.out.println("    NOMBRE DEL CUPÓN ");

@@ -2,9 +2,9 @@ package Options;
 
 public class Product {
     private String name;
-    private int precio;
+    private double precio;
 
-    public Product(String name, int precio){
+    public Product(String name, double precio){
         this.name = name;
         this.precio = precio;
     }
@@ -17,7 +17,7 @@ public class Product {
         this.name = name;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
@@ -46,8 +46,6 @@ public class Product {
             System.out.println(" INGRESA OTRO NOMBRE");
         }
     }
-
-
 
     public static void addProductToArray(Product myProduct){
         for (int i=0; i<= listProducts.length;  i++){

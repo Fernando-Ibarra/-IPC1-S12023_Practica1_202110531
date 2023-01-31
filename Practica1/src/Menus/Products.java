@@ -13,13 +13,13 @@ public class Products {
     public static void addProduct(){
         String nameP;
         int valorP;
-
-        System.out.println("                                ");
+        sc.skip("\n");
         System.out.println(" ----------- AGREGAR PRODUCTO ----------- ");
+        System.out.println("                                            ");
         System.out.println("    NOMBRE PRODUCTO ");
         nameP = sc.nextLine();
         validationNameProduct(nameP);
-
+        System.out.println("                                            ");
         System.out.println("    PRECIO DEL PRODUCTO");
         valorP = sc.nextInt();
         valorP = validationPriceProduct(valorP);
