@@ -53,7 +53,7 @@ public class Sales {
                     int n = sc.nextInt();
                     System.out.println(" ¿CUÁNTOS DESEA AGREGAR? ");
                     int quality = sc.nextInt();
-                    listSaleProduct = saleProduct(listProducts, listSaleProduct, n, quality);
+                    saleProduct(listProducts[n], listSaleProduct, quality);
                     break;
                 case 2:
                     SalesU(mySale, listSaleProduct, listTickest);

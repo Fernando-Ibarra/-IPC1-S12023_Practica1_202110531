@@ -34,4 +34,6 @@ public class Sale {
     public static void setListSale(Sale[] listSale) {
         Sale.listSale = listSale;
     }
+
+
 }

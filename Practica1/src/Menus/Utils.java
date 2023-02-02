@@ -101,18 +101,14 @@ public class Utils {
         return listProducts[n];
     }
 
-    public static SalesProduct[] saleProduct(Product[] listProducts, SalesProduct[] listSaleProduct, int n, int quality){
+    public static void saleProduct(Product products, SalesProduct[] listSaleProduct, int quality){
         for (int i = 0; i < listSaleProduct.length; i++) {
-            if (listSaleProduct[i] != null){
+            if (listSaleProduct[i] == null){
+                SalesProduct mySaleProducto = new SalesProduct(products, quality);
+                listSaleProduct[i] = mySaleProducto;
                 break;
-            } else {
-                listSaleProduct[i].setProduct(listProducts[n]);
-                listSaleProduct[i].setQuantity(quality);
-                return listSaleProduct;
             }
-
         }
-        return listSaleProduct;
     }
 
     public static void SalesU(Sale person, SalesProduct[] sale, Ticket[] listTickest){
@@ -121,9 +117,14 @@ public class Utils {
         System.out.println("    NOMBRE           PRECIO         CANTIDAD        TOTAL");
         double totalF = 0;
         for (int i = 0; i < sale.length; i++) {
-            double totalP = sale[i].getProduct().getPrecio()*sale[i].getQuantity();
-            System.out.println(sale[i].getProduct().getName() + "           " + sale[i].getProduct().getPrecio() + "         "+ sale[i].getQuantity() + "        " +totalP);
-            totalF +=totalP;
+            if (sale[i] != null) {
+                double totalP = sale[i].getProduct().getPrecio()*sale[i].getQuantity();
+                System.out.println("    "+sale[i].getProduct().getName() + "           " + sale[i].getProduct().getPrecio() + "                 "+ sale[i].getQuantity() + "              " +totalP);
+                totalF +=totalP;
+            } else {
+                break;
+            }
+
         }
         AllSales Sale = new AllSales(person, sale);
         System.out.println(" DESEA GREGAR UN CUPÓN");

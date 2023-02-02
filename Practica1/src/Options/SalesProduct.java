@@ -4,7 +4,7 @@ public class SalesProduct {
     int quantity;
     Product product;
 
-    public SalesProduct(Product product, int quantity, double price){
+    public SalesProduct(Product product, int quantity){
         this.quantity = quantity;
         this.product = product;
     }
@@ -34,4 +34,6 @@ public class SalesProduct {
     }
 
     public static SalesProduct[] listSaleProduct = new SalesProduct[20];
+
+
 }
