@@ -59,16 +59,14 @@ public class Utils {
 
     // TICKETS
     public static int validationValueTickets(int valor){
-        if (valor >0 && valor<100){
-            return valor;
-        } else{
+        if (valor <= 0 || valor >= 100) {
             System.out.println(" EL VALOR DEL CUPÓN DEBE SER MAYOR A 0 Y MENOR A 100");
             System.out.println(" INGRESA UN VALOR CORRECTO");
             System.out.println("                                ");
-            System.out.println("    VALOR DEL CUPÓN (%) " );
+            System.out.println("    VALOR DEL CUPÓN (%) ");
             valor = sc.nextInt();
-            return valor;
         }
+        return valor;
     }
 
     public static String validationNameTicket(String name){
@@ -131,13 +129,18 @@ public class Utils {
         System.out.println("  [1] SÍ        [2] NO  ");
         int res =  sc.nextInt();
         if (res==1){
+            sc.skip("\n");
             System.out.println(" ESCRIBA EL CUPÓN ");
             String cupon = sc.nextLine();
             for (int i = 0; i < listTickest.length; i++) {
-                if(listTickest[i].getName().equals(cupon)){
-                    double des = totalF * (listTickest[i].getValue() / 100);
-                    totalF = totalF - des;
-                    printF(person, sale, listTickest[i].getValue(), totalF, true);
+                if (listTickest[i] != null){
+                    if(listTickest[i].getName().equals(cupon)){
+                        double por = (listTickest[i].getValue())/100;
+                        double des = totalF*por;
+                        double totalN = totalF - des;
+                        printF(person, sale, listTickest[i].getValue(), totalN, true);
+                    }
+                } else {
                     break;
                 }
             }
@@ -154,12 +157,16 @@ public class Utils {
         System.out.println(" FECHA: " + new Date());
         double totalFa = 0;
         for (int i = 0; i < sale.length; i++) {
-            double totalP = sale[i].getProduct().getPrecio()*sale[i].getQuantity();
-            System.out.println(sale[i].getProduct().getName() + "           " + sale[i].getProduct().getPrecio() + "         "+ sale[i].getQuantity() + "        " +totalP);
-            totalFa +=totalP;
+            if (sale[i] != null){
+                double totalP = sale[i].getProduct().getPrecio()*sale[i].getQuantity();
+                System.out.println(sale[i].getProduct().getName() + "           " + sale[i].getProduct().getPrecio() + "         "+ sale[i].getQuantity() + "        " +totalP);
+                totalFa +=totalP;
+            } else {
+                break;
+            }
         }
         System.out.println(" SUBTOTAL: " + totalFa);
-        if(desc == true){
+        if(desc){
             System.out.println(" PORCENTAJE DE DESCUENTO: "+ valueCu+"%");
             System.out.println(" TOTAL A PAGAR: Q "+totalF);
         } else {
