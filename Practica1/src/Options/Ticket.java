@@ -2,7 +2,7 @@ package Options;
 
 public class Ticket {
     String name;
-    int value;
+    double value;
 
     public Ticket(String name, int value){
         this.name = name;
@@ -17,7 +17,7 @@ public class Ticket {
         this.name = name;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 

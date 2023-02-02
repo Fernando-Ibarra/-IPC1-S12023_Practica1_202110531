@@ -135,8 +135,8 @@ public class Utils {
             for (int i = 0; i < listTickest.length; i++) {
                 if (listTickest[i] != null){
                     if(listTickest[i].getName().equals(cupon)){
-                        double por = (listTickest[i].getValue())/100;
-                        double des = totalF*por;
+                        double por = listTickest[i].getValue();
+                        double des = totalF*(por/100);
                         double totalN = totalF - des;
                         printF(person, sale, listTickest[i].getValue(), totalN, true);
                     }
