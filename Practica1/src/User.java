@@ -1,6 +1,6 @@
 public class User {
-    private String user;
-    private String password;
+    private final String user;
+    private final String password;
 
     public User (String user, String password) {
         this.user = user;
@@ -11,16 +11,8 @@ public class User {
         return user;
     }
 
-    public void setUser(String user) {
-        this.user = user;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
 

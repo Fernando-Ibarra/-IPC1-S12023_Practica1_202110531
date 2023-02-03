@@ -43,6 +43,7 @@ public class MenuP {
     public static void showMenu(){
         int menuOption;
         do {
+            System.out.println("                                ");
             System.out.println("SELECCIONA LA OPCIÓN DESEADA");
             System.out.println("[1] AGREGAR PRODUCTOS");
             System.out.println("[2] AGREGAR CUPONES DE DESCUENTO");

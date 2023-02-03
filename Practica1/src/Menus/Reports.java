@@ -10,10 +10,11 @@ import static Options.Report.listProductReport;
 public class Reports {
     public static void Report() {
         burbuja(listProductReport);
-        System.out.println("    PRODUCTO           CANTIDAD");
+        System.out.println("                                                    ");
+        System.out.println("        PRODUCTO           CANTIDAD");
         for (Report arr : listProductReport) {
             if (arr != null){
-                System.out.println("   "+ arr.getProduct().getName() + "           " + arr.getQuantity());
+                System.out.println("   "+ arr.getProduct().getName() + "                      " + arr.getQuantity());
             } else {
                 break;
             }

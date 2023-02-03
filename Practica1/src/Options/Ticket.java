@@ -13,38 +13,19 @@ public class Ticket {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public double getValue() {
         return value;
     }
 
-    public void setValue(int value) {
-
-        this.value = value;
-    }
-
     public static Ticket[] listTickest = new Ticket[20];
-
-    public static Ticket[] getListTickest() {
-        return listTickest;
-    }
-
-    public static void setListTickest(Ticket[] listTickest) {
-        Ticket.listTickest = listTickest;
-    }
 
     public static void addTicketToArray(Ticket myTicket){
         for (int i=0; i<= listTickest.length;  i++){
             if (listTickest[i] != null){
                 break;
             }
-            if (listTickest[i] == null){
-                listTickest[i] = myTicket;
-                break;
-            }
+            listTickest[i] = myTicket;
+            break;
         }
     }
 

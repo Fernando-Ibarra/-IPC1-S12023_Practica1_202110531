@@ -24,28 +24,26 @@ public class Utils {
                 break;
             }
 
-            if (listProduct == null) {
-                return name;
-            }
-            break;
+            return name;
         }
         return name;
     }
 
     // PRODUCTS
-    public static int validationPriceProduct(int valor){
+    public static double validationPriceProduct(double valor){
         if (valor <1){
             System.out.println(" EL VALOR DEL PRODUCTO DEBE SER MAYOR A 0");
             System.out.println(" INGRESA UN VALOR CORRECTO");
             System.out.println("                                ");
             System.out.println("    PRECIO DEL PRODUCTO " );
-            valor = sc.nextInt();
+            valor = sc.nextDouble();
             return valor;
         }
         return valor;
     }
 
     public static void listProductToSale(Product[] listProducts){
+        System.out.println("                                                    ");
         System.out.println("            #               NOMBRE              VALOR   ");
         for (int i = 0; i <listProducts.length; i++) {
             if (listProducts[i]!=null){
@@ -90,15 +88,6 @@ public class Utils {
         }
     }
 
-    public static Product getProducToSale(Product[] listProducts, int n){
-        for (Product listProduct : listProducts) {
-            if (listProduct == listProducts[n]) {
-                return listProduct;
-            }
-            break;
-        }
-        return listProducts[n];
-    }
 
     public static void saleProduct(Product products, SalesProduct[] listSaleProduct, int quality){
         for (int i = 0; i < listSaleProduct.length; i++) {
@@ -111,6 +100,7 @@ public class Utils {
     }
 
     public static void SalesU(Sale person, SalesProduct[] sale, Ticket[] listTickest){
+        System.out.println("                                                            ");
         System.out.println(" ------------------------- TOTAL ------------------------- ");
         System.out.println("                    SUS PRODUCTOS SON  ");
         System.out.println("    NOMBRE           PRECIO         CANTIDAD        TOTAL");
@@ -125,6 +115,7 @@ public class Utils {
             }
         }
         AllSales Sale = new AllSales(person, sale);
+        System.out.println("                       ");
         System.out.println(" DESEA GREGAR UN CUPÓN");
         System.out.println("  [1] SÍ        [2] NO  ");
         int res =  sc.nextInt();
@@ -150,12 +141,14 @@ public class Utils {
     }
 
     public static void printF(Sale person, SalesProduct[] sale, double valueCu, double totalF, boolean desc){
+        System.out.println("                                                    ");
         System.out.println(" ----------------------- FACTURA ----------------------- ");
         System.out.println(" NOMBRE CLIENTE: " + person.getName());
         System.out.println(" NIT: " + person.getNit());
         System.out.println(" NOMBRE CAJERO: ENRIQUE FERNANDO GAITÁN IBARRA");
         System.out.println(" FECHA: " + new Date());
         double totalFa = 0;
+        System.out.println("    NOMBRE           PRECIO         CANTIDAD        TOTAL");
         for (SalesProduct salesProduct : sale) {
             if (salesProduct != null) {
                 double totalP = salesProduct.getProduct().getPrecio() * salesProduct.getQuantity();

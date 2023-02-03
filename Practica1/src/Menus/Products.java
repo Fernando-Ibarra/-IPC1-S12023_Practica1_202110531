@@ -12,18 +12,17 @@ public class Products {
 
     public static void addProduct(){
         String nameP;
-        int valorP;
+        double valorP;
         sc.skip("\n");
         System.out.println(" ----------- AGREGAR PRODUCTO ----------- ");
         System.out.println("                                            ");
         System.out.println("    NOMBRE PRODUCTO ");
         nameP = sc.nextLine();
-        validationNameProduct(nameP);
+        nameP = validationNameProduct(nameP);
         System.out.println("                                            ");
         System.out.println("    PRECIO DEL PRODUCTO");
-        valorP = sc.nextInt();
+        valorP = sc.nextDouble();
         valorP = validationPriceProduct(valorP);
-
 
         Product myProduct = new Product(nameP, valorP);
 

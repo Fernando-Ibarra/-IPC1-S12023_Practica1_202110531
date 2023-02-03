@@ -31,14 +31,12 @@ public class Sales {
         do {
             System.out.println("                                            ");
             System.out.println(" DESEAS AGREGAR UN PRODUCTO A LA LISTA ");
-            System.out.println("[1] SÍ");
-            System.out.println("[2] TERMINAR");
-            System.out.println("[3] MOSTRAR PRODUCTOS OTRA VEZ ");
-            System.out.println("[0] SALIR");
+            System.out.println("[1] SÍ     [2] TERMINAR     [3] MOSTRAR PRODUCTOS OTRA VEZ     [0] SALIR");
             System.out.println();
             menuProductOption = sc.nextInt();
             switch (menuProductOption) {
                 case 1:
+                    System.out.println("                                                    ");
                     System.out.println(" ¿QUÉ PRODUCTO DESEA AGREGAR? SELECCIONE EL NÚMERO ");
                     int n = sc.nextInt();
                     System.out.println(" ¿CUÁNTOS DESEA AGREGAR? ");

@@ -21,7 +21,7 @@ public class Product {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         if (precio<1){
             System.out.println(" EL VALOR DEL PRODUCTO DEBE SER MAYOR A 0");
             System.out.println(" INGRESA UN VALOR CORRECTO");
