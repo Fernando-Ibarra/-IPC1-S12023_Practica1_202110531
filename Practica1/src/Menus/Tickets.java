@@ -30,13 +30,11 @@ public class Tickets {
 
         Ticket.addTicketToArray(myTicket);
 
-        int menuProductOption = 0;
+        int menuProductOption;
         do {
             System.out.println("                                ");
-            System.out.println(" DESEA AGREGAR OTRO CUPÓN ");
-            System.out.println("[1] Sí");
-            System.out.println("[2] No");
-            System.out.println("[3] MOSTRAR CUPONES");
+            System.out.println("        DESEA AGREGAR OTRO CUPÓN ");
+            System.out.println("            [1] SÍ    [2] NO    ");
 
             menuProductOption = sc.nextInt();
 

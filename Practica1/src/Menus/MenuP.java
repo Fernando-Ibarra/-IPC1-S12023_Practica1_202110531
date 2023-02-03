@@ -3,6 +3,7 @@ package Menus;
 import java.util.Scanner;
 
 import static Menus.Products.addProduct;
+import static Menus.Reports.Report;
 import static Menus.Sales.Sale;
 import static Menus.Tickets.addTickets;
 
@@ -13,16 +14,16 @@ public class MenuP {
         String user;
         String password;
 
-        System.out.println("             $$$$$$\\  $$\\   $$\\ $$$$$$$\\  $$$$$$$$\\ $$$$$$$\\                       $$$$$$\\  $$$$$$$\\  \n" +
-                "            $$  __$$\\ $$ |  $$ |$$  __$$\\ $$  _____|$$  __$$\\                     $$  __$$\\ $$  ____| \n" +
-                "            $$ /  \\__|$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |                    \\__/  $$ |$$ |      \n" +
-                "            \\$$$$$$\\  $$ |  $$ |$$$$$$$  |$$$$$\\    $$$$$$$  |      $$$$$$\\        $$$$$$  |$$$$$$$\\  \n" +
-                "             \\____$$\\ $$ |  $$ |$$  ____/ $$  __|   $$  __$$<       \\______|      $$  ____/ \\_____$$\\ \n" +
-                "            $$\\   $$ |$$ |  $$ |$$ |      $$ |      $$ |  $$ |                    $$ |      $$\\   $$ |\n" +
-                "            \\$$$$$$  |\\$$$$$$  |$$ |      $$$$$$$$\\ $$ |  $$ |                    $$$$$$$$\\ \\$$$$$$  |\n" +
-                "             \\______/  \\______/ \\__|      \\________|\\__|  \\__|                    \\________| \\______/ ");
-        System.out.println(" ------------------------------------------------------------------------------------------------- ");
-        System.out.println("                                                                                                   ");
+        System.out.println("$$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\");
+        System.out.println("$$\\        $$$$$$\\  $$\\   $$\\ $$$$$$$\\  $$$$$$$$\\ $$$$$$$\\         $$$$$$\\  $$$$$$$\\        $$\\ \n" +
+                "$$ |      $$  __$$\\ $$ |  $$ |$$  __$$\\ $$  _____|$$  __$$\\       $$  __$$\\ $$  ____|       $$ |\n" +
+                "$$ |      $$ /  \\__|$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |      \\__/  $$ |$$ |            $$ |\n" +
+                "\\__|      \\$$$$$$\\  $$ |  $$ |$$$$$$$  |$$$$$\\    $$$$$$$  |       $$$$$$  |$$$$$$$\\        \\__|\n" +
+                "$$\\        \\____$$\\ $$ |  $$ |$$  ____/ $$  __|   $$  __$$<       $$  ____/ \\_____$$\\       $$\\ \n" +
+                "$$ |      $$\\   $$ |$$ |  $$ |$$ |      $$ |      $$ |  $$ |      $$ |      $$\\   $$ |      $$ |\n" +
+                "$$ |      \\$$$$$$  |\\$$$$$$  |$$ |      $$$$$$$$\\ $$ |  $$ |      $$$$$$$$\\ \\$$$$$$  |      $$ |\n" +
+                "\\__|       \\______/  \\______/ \\__|      \\________|\\__|  \\__|      \\________| \\______/       \\__");
+        System.out.println("$$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ $$$$$$\\ \n");
         System.out.println("    Ingresa tu usuario");
         user = sc.nextLine();
         System.out.println("    Ingresa tu contraseña ");
@@ -42,11 +43,12 @@ public class MenuP {
     public static void showMenu(){
         int menuOption;
         do {
-            System.out.println("Selecciona la opción deseada");
-            System.out.println("[1] Agregar nuevos productos");
-            System.out.println("[2] Agregar cupones de descuento");
-            System.out.println("[3] Realizar venta");
-            System.out.println("[4] Realizar reporte");
+            System.out.println("SELECCIONA LA OPCIÓN DESEADA");
+            System.out.println("[1] AGREGAR PRODUCTOS");
+            System.out.println("[2] AGREGAR CUPONES DE DESCUENTO");
+            System.out.println("[3] REALIZAR VENTA");
+            System.out.println("[4] IMPRIMIR REPORTE");
+            System.out.println("[5] SALIR");
 
             menuOption = sc.nextInt();
 
@@ -61,8 +63,10 @@ public class MenuP {
                     Sale();
                     break;
                 case 4:
-                    System.out.println("Realizar reporte");
+                    Report();
                     break;
+                case 5:
+                    System.exit(0);
                 default:
                     System.out.println("POR FAVOR, SELECCIONE UNA OPCIÓN CORRECTA");
             }

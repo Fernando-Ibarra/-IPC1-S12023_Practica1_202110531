@@ -29,16 +29,12 @@ public class Products {
 
         Product.addProductToArray(myProduct);
 
-        int menuProductOption = 0;
+        int menuProductOption;
         do {
             System.out.println("                                ");
-            System.out.println(" DESEA AGREGAR OTRO PRODUCTO ");
-            System.out.println("[1] Sí");
-            System.out.println("[2] No");
-            System.out.println("[3] MOSTRAR PRODUCTOS ");
-
+            System.out.println("        DESEA AGREGAR OTRO PRODUCTO ");
+            System.out.println("            [1] SÍ    [2] NO    ");
             menuProductOption = sc.nextInt();
-
             switch (menuProductOption) {
                 case 1:
                     addProduct();
@@ -47,7 +43,7 @@ public class Products {
                     showMenu();
                     break;
                 default:
-                    System.out.println("Please, select a correct answer");
+                    System.out.println("POR FAVOR, SELECCIONE UNA OPCIÓN CORRECTA");
             }
         } while (menuProductOption!=0);
 

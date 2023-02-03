@@ -1,12 +1,9 @@
 package Options;
 
-public class SalesProduct {
-    int quantity;
-    Product product;
+public class SalesProduct extends ProductUse {
 
     public SalesProduct(Product product, int quantity){
-        this.quantity = quantity;
-        this.product = product;
+        super(product, quantity);
     }
 
     public int getQuantity() {
@@ -34,6 +31,5 @@ public class SalesProduct {
     }
 
     public static SalesProduct[] listSaleProduct = new SalesProduct[20];
-
 
 }

@@ -11,9 +11,9 @@ public class Utils {
     static Scanner sc = new Scanner(System.in);
 
     public static String validationNameProduct(String name){
-        for (int i = 0; i <listProducts.length; i++) {
-            if (listProducts[i] != null){
-                if(listProducts[i].getName().equals(name)){
+        for (Product listProduct : listProducts) {
+            if (listProduct != null) {
+                if (listProduct.getName().equals(name)) {
                     System.out.println(" ESTE PRODUCTO YA SE ENCUENTRA REGISTRADO ");
                     System.out.println(" COLOCAR OTRA NOMBRE ");
                     System.out.println("                                ");
@@ -24,7 +24,7 @@ public class Utils {
                 break;
             }
 
-            if (listProducts[i] == null){
+            if (listProduct == null) {
                 return name;
             }
             break;
@@ -83,16 +83,17 @@ public class Utils {
 
     // SALES
     public static String validationNit(String nit){
-        if (nit == null){
+        if (nit.length()>0){
+            return nit;
+        } else {
             return "C/F";
         }
-        return nit;
     }
 
     public static Product getProducToSale(Product[] listProducts, int n){
-        for (int i = 0; i < listProducts.length; i++) {
-            if(listProducts[i] == listProducts[n]){
-                return listProducts[i];
+        for (Product listProduct : listProducts) {
+            if (listProduct == listProducts[n]) {
+                return listProduct;
             }
             break;
         }
@@ -110,19 +111,18 @@ public class Utils {
     }
 
     public static void SalesU(Sale person, SalesProduct[] sale, Ticket[] listTickest){
-        System.out.println(" -------------------- TOTAL -------------------- ");
-        System.out.println("     SUS PRODUCTOS SON");
+        System.out.println(" ------------------------- TOTAL ------------------------- ");
+        System.out.println("                    SUS PRODUCTOS SON  ");
         System.out.println("    NOMBRE           PRECIO         CANTIDAD        TOTAL");
         double totalF = 0;
-        for (int i = 0; i < sale.length; i++) {
-            if (sale[i] != null) {
-                double totalP = sale[i].getProduct().getPrecio()*sale[i].getQuantity();
-                System.out.println("    "+sale[i].getProduct().getName() + "           " + sale[i].getProduct().getPrecio() + "                 "+ sale[i].getQuantity() + "              " +totalP);
-                totalF +=totalP;
+        for (SalesProduct salesProduct : sale) {
+            if (salesProduct != null) {
+                double totalP = salesProduct.getProduct().getPrecio() * salesProduct.getQuantity();
+                System.out.println("    " + salesProduct.getProduct().getName() + "           " + salesProduct.getProduct().getPrecio() + "                 " + salesProduct.getQuantity() + "              " + totalP);
+                totalF += totalP;
             } else {
                 break;
             }
-
         }
         AllSales Sale = new AllSales(person, sale);
         System.out.println(" DESEA GREGAR UN CUPÓN");
@@ -132,13 +132,13 @@ public class Utils {
             sc.skip("\n");
             System.out.println(" ESCRIBA EL CUPÓN ");
             String cupon = sc.nextLine();
-            for (int i = 0; i < listTickest.length; i++) {
-                if (listTickest[i] != null){
-                    if(listTickest[i].getName().equals(cupon)){
-                        double por = listTickest[i].getValue();
-                        double des = totalF*(por/100);
+            for (Ticket ticket : listTickest) {
+                if (ticket != null) {
+                    if (ticket.getName().equals(cupon)) {
+                        double por = ticket.getValue();
+                        double des = totalF * (por / 100);
                         double totalN = totalF - des;
-                        printF(person, sale, listTickest[i].getValue(), totalN, true);
+                        printF(person, sale, ticket.getValue(), totalN, true);
                     }
                 } else {
                     break;
@@ -156,11 +156,11 @@ public class Utils {
         System.out.println(" NOMBRE CAJERO: ENRIQUE FERNANDO GAITÁN IBARRA");
         System.out.println(" FECHA: " + new Date());
         double totalFa = 0;
-        for (int i = 0; i < sale.length; i++) {
-            if (sale[i] != null){
-                double totalP = sale[i].getProduct().getPrecio()*sale[i].getQuantity();
-                System.out.println(sale[i].getProduct().getName() + "           " + sale[i].getProduct().getPrecio() + "         "+ sale[i].getQuantity() + "        " +totalP);
-                totalFa +=totalP;
+        for (SalesProduct salesProduct : sale) {
+            if (salesProduct != null) {
+                double totalP = salesProduct.getProduct().getPrecio() * salesProduct.getQuantity();
+                System.out.println(salesProduct.getProduct().getName() + "           " + salesProduct.getProduct().getPrecio() + "         " + salesProduct.getQuantity() + "        " + totalP);
+                totalFa += totalP;
             } else {
                 break;
             }
@@ -171,6 +171,39 @@ public class Utils {
             System.out.println(" TOTAL A PAGAR: Q "+totalF);
         } else {
             System.out.println(" TOTAL A PAGAR: Q "+totalF);
+        }
+    }
+
+    // REPORT
+    public static void toBurbuja(Product products, Report[] listProductReport, int quality){
+        for (int i = 0; i < listProductReport.length; i++) {
+            Report myProductoReport = new Report(products, quality);
+            if(listProductReport[i] != null){
+                if (listProductReport[i].getProduct().getName().equals(myProductoReport.getProduct().getName())){
+                    int cant = listProductReport[i].getQuantity() + myProductoReport.getQuantity();
+                    listProductReport[i].setQuantity(cant);
+                    break;
+                }
+            } else {
+                listProductReport[i] = myProductoReport;
+                break;
+            }
+        }
+    }
+
+    public static void burbuja(Report[] listProductReport) {
+        for (int i = 0; i < listProductReport.length; i++) {
+            for (int j = 0; j < listProductReport.length - 1; j++) {
+                if (listProductReport[j+1] != null) {
+                    if (listProductReport[j].getQuantity() < listProductReport[j + 1].getQuantity()) {
+                        Report temp = listProductReport[j];
+                        listProductReport[j] = listProductReport[j + 1];
+                        listProductReport[j + 1] = temp;
+                    }
+                } else {
+                    break;
+                }
+            }
         }
     }
 }
