@@ -5,8 +5,7 @@ import Options.Ticket;
 import java.util.Scanner;
 
 import static Menus.MenuP.showMenu;
-import static Menus.Utils.validationNameTicket;
-import static Menus.Utils.validationValueTickets;
+import static Menus.Utils.*;
 
 public class Tickets {
     static Scanner sc = new Scanner(System.in);
@@ -20,6 +19,7 @@ public class Tickets {
         System.out.println("    NOMBRE DEL CUPÓN ");
         nameTicket = sc.nextLine();
         nameTicket = validationNameTicket(nameTicket);
+        nameTicket = validationNameTickets(nameTicket);
 
         System.out.println("    VALOR DEL CUPÓN (%) " );
         valueTicket = sc.nextInt();

@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 import static Options.Product.listProducts;
+import static Options.Ticket.listTickest;
 
 public class Utils {
     static Scanner sc = new Scanner(System.in);
@@ -63,6 +64,7 @@ public class Utils {
             System.out.println("                                ");
             System.out.println("    VALOR DEL CUPÓN (%) ");
             valor = sc.nextInt();
+            validationValueTickets(valor);
         }
         return valor;
     }
@@ -74,6 +76,27 @@ public class Utils {
             System.out.println("                                ");
             System.out.println("    NOMBRE DEL CUPÓN ");
             name = sc.nextLine();
+            validationNameTicket(name);
+            return name;
+        }
+        return name;
+    }
+
+    public static String validationNameTickets(String name){
+        for (Ticket listTickest : listTickest) {
+            if (listTickest != null) {
+                if (listTickest.getName().equals(name)) {
+                    System.out.println(" ESTE CUPÓN YA SE ENCUENTRA REGISTRADO ");
+                    System.out.println(" COLOCAR OTRA NOMBRE ");
+                    System.out.println("                                ");
+                    System.out.println("    NOMBRE CUPÓN ");
+                    name = sc.nextLine();
+                    validationNameTickets(name);
+                    return name;
+                }
+                break;
+            }
+
             return name;
         }
         return name;
